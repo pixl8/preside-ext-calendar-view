@@ -1,9 +1,9 @@
 /**
- * @datamanagerGridFields   label,bgcolour,textcolour
- * @datamanagerEnabled      true
- * @dataManagerAllowedOperations edit,delete,clone
- * @versioned               false
- * @feature                 calendarManageColour
+ * @datamanagerGridFields        label,bgcolour,textcolour
+ * @datamanagerEnabled           true
+ * @dataManagerAllowedOperations add,edit,delete,clone
+ * @versioned                    false
+ * @feature                      calendarManageColour
  */
 component {
 	property name="label"  type="string"  dbtype="varchar" maxlength=150 uniqueindexes="lookupvalue";

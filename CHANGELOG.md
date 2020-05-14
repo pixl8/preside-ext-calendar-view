@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.6
+* Remove timezone information from date
+* Reinstate date filter values for filtering
+* Reinstate add operation for colour code
+
 ## 1.1.5
  * changed year view mouseover rendering
  * check calendarManageColour feature is enabled when getting item colour
