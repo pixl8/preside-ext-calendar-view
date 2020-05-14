@@ -55,6 +55,8 @@ component extends="preside.system.base.AdminHandler" {
 			  extraFilters   = getRecordsArgs.extraFilters
 			, startDateField = calendarViewConfig.startDateField
 			, endDateField   = calendarViewConfig.endDateField
+			, startDate      = rc.start ?: ""
+			, endDate        = rc.end   ?: ""
 		);
 
 		if ( Len( Trim( rc.savedFilters ?: "" ) ) ) {
@@ -109,8 +111,8 @@ component extends="preside.system.base.AdminHandler" {
 				var processedRecord = {
 					  id    : record.id
 					, title : record.label ?: "unknown"
-					, start : record[ calendarViewConfig.startDateField ]
-					, end   : record[ calendarViewConfig.endDateField  ]
+					, start : DateTimeFormat( record[ calendarViewConfig.startDateField ], "yyyy-mm-dd HH:nn:ss" )
+					, end   : DateTimeFormat( record[ calendarViewConfig.endDateField ], "yyyy-mm-dd HH:nn:ss" )
 				};
 
 				if ( hasRecordRenderCustomization ) {
@@ -144,7 +146,13 @@ component extends="preside.system.base.AdminHandler" {
 
 		var calendarEvents = [];
 
-		_getExtraFilters( extraFilters = getRecordsArgs.extraFilters, startDateField=calendarViewConfig.startDateField, endDateField=calendarViewConfig.endDateField );
+		_getExtraFilters(
+			  extraFilters   = getRecordsArgs.extraFilters
+			, startDateField = calendarViewConfig.startDateField
+			, endDateField   = calendarViewConfig.endDateField
+			, startDate      = rc.start ?: ""
+			, endDate        = rc.end   ?: ""
+		);
 
 		if ( Len( publicViewHandler ) ) {
 			if ( Len( Trim( rc.publicFilters ?: "" ) ) ) {
@@ -183,8 +191,8 @@ component extends="preside.system.base.AdminHandler" {
 					var processedRecord = {
 						  id    : record.id
 						, title : record[ calendarViewConfig.labelField ] ?: "unknown"
-						, start : record[ calendarViewConfig.startDateField ]
-						, end   : record[ calendarViewConfig.endDateField  ]
+						, start : DateTimeFormat( record[ calendarViewConfig.startDateField ], "yyyy-mm-dd HH:nn:ss" )
+						, end   : DateTimeFormat( record[ calendarViewConfig.endDateField ], "yyyy-mm-dd HH:nn:ss" )
 					};
 
 					if ( hasRecordRenderCustomization ) {
@@ -266,12 +274,12 @@ component extends="preside.system.base.AdminHandler" {
 		};
 	}
 
-	private void function _getExtraFilters( required array extraFilters, required string startDateField, string endDateField ) {
+	private void function _getExtraFilters( required array extraFilters, required string startDateField, string endDateField, string startDate, string endDate ) {
 		extraFilters.append( {
 			  filter="(#startDateField# between :start_date and :end_date) or (#endDateField# between :start_date and :end_date) or ( #startDateField# < :start_date and #endDateField# > :end_date - interval 1 day )"
 			, filterParams = {
-				  start_date = { type="cf_sql_date", value=( rc.start ?: "1900-01-01" ) }
-				, end_date   = { type="cf_sql_date", value=( rc.end   ?: "2900-01-01" ) }
+				  start_date = { type="cf_sql_date", value=( arguments.startDate ?: "1900-01-01" ) }
+				, end_date   = { type="cf_sql_date", value=( arguments.endDate   ?: "2900-01-01" ) }
 			  }
 		} );
 	}
