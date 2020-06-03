@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.7
+* Public view: alternative detail link to data manager object
+
 ## 1.1.6
 * Remove timezone information from date
 * Reinstate date filter values for filtering

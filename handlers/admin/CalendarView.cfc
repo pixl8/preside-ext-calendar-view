@@ -174,7 +174,11 @@ component extends="preside.system.base.AdminHandler" {
 			var linkField   = listLast( linkIdKey, ":" );
 
 			if ( IsTrue( displayLink ) ) {
-				linkBase = event.buildAdminLink( "#ListFirst( linkIdKey, ':' )#"="{recordid}" );
+				if ( ListFirst( linkIdKey, ':' ) == 'objectName' ) {
+					linkBase = event.buildAdminLink( objectName=objectName, recordId="{recordid}" );
+				} else {
+					linkBase = event.buildAdminLink( "#ListFirst( linkIdKey, ':' )#"="{recordid}" );
+				}
 			}
 
 			if ( getController().handlerExists( publicViewHandler & ".processRecordsForCalendar" ) ) {
