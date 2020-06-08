@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.8
+* Workaround to display day header in month view
+
 ## 1.1.7
 * Public view: alternative detail link to data manager object
 
