@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.9
+* Setup default calendar style for public view
+
 ## 1.1.8
 * Workaround to display day header in month view
 
