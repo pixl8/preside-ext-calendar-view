@@ -15,21 +15,22 @@ component extends="preside.system.base.AdminHandler" {
 				 .includeData( { config = args.yearConfig ?: {}, language=args.language ?: "en" } );
 		} else {
 			if ( IsTrue( args.publicView ?: "" ) ) {
-				event.include( "/js/admin/specific/calendarviewPublic/" );
+				event.include( "/js/admin/specific/calendarviewPublic/" )
+					.include( "/css/admin/specific/calendarviewPublic/" );
 
 				if ( Len( args.publicFormFilter ?: "" ) && !formsService.formExists( formName=args.publicFormFilter ) ) {
 					args.publicFormFilter = "";
 				}
 			} else {
-				event.include( "/js/admin/specific/calendarview/"  );
+				event.include( "/js/admin/specific/calendarview/"  )
+					.include( "/css/admin/specific/calendarview/" );
 			}
 
 			var config = args.config ?: {};
 			if ( len( args.language ?: "" ) ) {
 				config.locale = args.language;
 			}
-			event.include( "/css/admin/specific/calendarview/" )
-			     .includeData( { config = config } );
+			event.includeData( { config = config } );
 		}
 
 		args.eventsSourceUrl = customizationService.runCustomization(
