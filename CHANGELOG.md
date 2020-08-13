@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.10
+* Add delay injector for featureService
+
 ## 1.1.9
 * Setup default calendar style for public view
 
