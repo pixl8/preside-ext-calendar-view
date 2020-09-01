@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.11
+* #13 Month view day headers should respect firstDay setting
+
 ## 1.1.10
 * Add delay injector for featureService
 

@@ -71,7 +71,7 @@
 			&& typeof config.views.month.columnHeaderFormat !== "undefined"
 			&& config.views.month.columnHeaderFormat == 'ddd' ) {
 			config.views.month.columnHeaderText = function(mom) {
-				return mom._locale.__proto__._weekdaysShort[mom.weekday()];
+				return mom._locale.__proto__._weekdaysShort[ ( mom.weekday() + ( config.firstDay||0 ) ) % 7 ];
 			}
 		}
 
