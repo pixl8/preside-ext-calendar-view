@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.13
+
+* [#15](https://github.com/pixl8/preside-ext-calendar-view/issues/15) Upgrade moment.js
+
 ## 1.1.11
 * #13 Month view day headers should respect firstDay setting
 
