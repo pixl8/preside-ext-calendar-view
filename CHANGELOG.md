@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.14
+
+* Convert to github actions for publishing
+
 ## 1.1.13
 
 * [#15](https://github.com/pixl8/preside-ext-calendar-view/issues/15) Upgrade moment.js
