@@ -1,7 +1,7 @@
 component {
 
 	public void function configure( bundle ) {
-		bundle.addAsset( id="momentjs"       ,     path="/js/lib/moment-2.22.2.min.js"               );
+		bundle.addAsset( id="momentjs"       ,     path="/js/lib/moment-2.29.4.min.js"               );
 		bundle.addAsset( id="fullcalendarjs" ,     path="/js/lib/fullcalendar-3.9.0.min.js"          );
 		bundle.addAsset( id="fullcalendarlocale",  path="/js/lib/fullcalendar-locale/locale-all.js"  );
 		bundle.addAsset( id="fullcalendarcss",     path="/css/lib/fullcalendar-3.9.0.min.css"        );
