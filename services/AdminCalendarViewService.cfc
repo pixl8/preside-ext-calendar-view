@@ -20,13 +20,14 @@ component {
 		var labelField = poService.getLabelField( arguments.objectName );
 
 		var config    = {
-			  startDateField     = poService.getObjectAttribute( arguments.objectName, "calendarStartDateField" )
-			, endDateField       = poService.getObjectAttribute( arguments.objectName, "calendarEndDateField"   )
-			, selectFields       = poService.getObjectAttribute( arguments.objectName, "calendarSelectFields", labelField ).listToArray()
-			, publicSelectFields = poService.getObjectAttribute( arguments.objectName, "calendarPublicSelectFields", labelField ).listToArray()
-			, calPublicHandler   = poService.getObjectAttribute( arguments.objectName, "calendarPublicHandler" )
-			, calLinkKey         = poService.getObjectAttribute( arguments.objectName, "calendarLinkKey" )
-			, labelField         = labelField
+			  startDateField      = poService.getObjectAttribute( arguments.objectName, "calendarStartDateField" )
+			, endDateField        = poService.getObjectAttribute( arguments.objectName, "calendarEndDateField" )
+			, additionalSortOrder = poService.getObjectAttribute( arguments.objectName, "calendarAdditionalSortOrder" )
+			, selectFields        = poService.getObjectAttribute( arguments.objectName, "calendarSelectFields", labelField ).listToArray()
+			, publicSelectFields  = poService.getObjectAttribute( arguments.objectName, "calendarPublicSelectFields", labelField ).listToArray()
+			, calPublicHandler    = poService.getObjectAttribute( arguments.objectName, "calendarPublicHandler" )
+			, calLinkKey          = poService.getObjectAttribute( arguments.objectName, "calendarLinkKey" )
+			, labelField          = labelField
 		};
 
 		_insertStartEndDateFields( config.selectFields, config.startDateField, config.endDateField );

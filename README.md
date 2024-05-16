@@ -34,9 +34,10 @@ In order for the calendar view to know how to render your object data, you must 
 
 ```cfc
 /**
- * @calendarStartDateField start_date
- * @calendarEndDateField   end_date
- * @calendarSelectFields   label,type,status
+ * @calendarStartDateField       start_date
+ * @calendarEndDateField         end_date
+ * @calendarAdditionalSortOrder  label
+ * @calendarSelectFields         label,type,status
  */
 component {
   // ...
@@ -45,14 +46,16 @@ component {
 
 * `calendarStartDateField`: (required) tells the extension what field to use for the
 * `calendarEndDateField`: (required) tells the extension what field to use for the end date (can be the same as the start date)
+* `calendarAdditionalSortOrder`: (optional) events are sorted by start_date. Provide a further sort order string to define the sort order for events with the _same_ starting date/time
 * `calendarSelectFields` (optional, default is just the label field) tells the extension what fields to select when fetching data. These fields can then be used in custom renders for a calendar event (see below).
 
 ### Public view
 
 ```cfc
 /**
- * @calendarStartDateField start_date
- * @calendarEndDateField   end_date
+ * @calendarStartDateField        start_date
+ * @calendarEndDateField          end_date
+ * @calendarAdditionalSortOrder   label
  * @calendarPublicSelectFields    id,name,event_type.label as event_type,slug,group_concat( distinct region.id ) as region_ids
  * @calendarPublicHandler         admin.appEventViewer
  * @calendarLinkKey               appEventSlug:slug
@@ -63,6 +66,7 @@ component {
 ```
 
 * `calendarStartDateField` & `calendarEndDateField`: (required) same usage as per Admin endpoint
+* `calendarAdditionalSortOrder`: (optional) same usage as per Admin endpoint
 * `calendarPublicSelectFields`: (required) fields to select when fetching data. Define as how you would for selectFields. These fields can then be used in custom renders for a calendar event
 * `calendarPublicHandler`: (required) path to custom handler endpoint which contains rendering functions for public view.
 * `calendarLinkKey` (optional, needed to render public event link) this builds custom URL. The notion in the example will be used in `event.buildAdminLink( appEventSlug={recordid} )` with additional {recordid} replacement with record `slug` field in `processRecordsForCalendar()`

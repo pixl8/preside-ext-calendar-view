@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.15
+
+* Add additional sort order option 
+
 ## 1.1.14
 
 * Convert to github actions for publishing
