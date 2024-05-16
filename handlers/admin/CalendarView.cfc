@@ -184,7 +184,7 @@ component extends="preside.system.base.AdminHandler" {
 
 			if ( getController().handlerExists( publicViewHandler & ".processRecordsForCalendar" ) ) {
 				calendarEvents = runEvent(
-					 event          = publicViewHandler & ".processRecordsForCalendar"
+					  event          = publicViewHandler & ".processRecordsForCalendar"
 					, prePostExempt  = true
 					, private        = true
 					, eventArguments = { args = { records=records, objectName=objectName, linkBase=linkBase, linkField=linkField } }
@@ -270,11 +270,16 @@ component extends="preside.system.base.AdminHandler" {
 	}
 
 	private struct function _getRecordArgs( required string objectName, required struct calendarViewConfig ) {
+		var orderBy = calendarViewConfig.startDateField;
+		if ( Len( calendarViewConfig.additionalSortOrder ) ) {
+			orderBy = ListAppend( orderBy, calendarViewConfig.additionalSortOrder );
+		}
+
 		return {
 			  objectName       = objectName
 			, startRow         = 1
 			, maxRows          = 0
-			, orderBy          = calendarViewConfig.startDateField
+			, orderBy          = orderBy
 			, extraFilters     = []
 		};
 	}
