@@ -8,7 +8,7 @@ component extends="coldbox.system.Interceptor" {
 		if ( featureService.isFeatureEnabled( "calendarManageColour" ) ) {
 			adminPermissions[ "calendarColourManager" ] = [ "navigate", "read", "add", "edit", "delete", "publish" ];
 			adminRoles.calendarColourManager            = [ "calendarColourManager.*" ];
-			adminConfigMenu.prepend( "calendarColourCode" );
+			ArrayAppend( adminConfigMenu, "calendarColourCode" );
 		}
 	}
 }
