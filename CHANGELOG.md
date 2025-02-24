@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.16
+
+* Move admin menu item to the bottom of the list (not so important that it should be at the top)
+
 ## 1.1.15
 
 * Add additional sort order option 
